@@ -18,13 +18,13 @@ main {
     padding: 20px;
 }
 
-#packs {
+#servicios {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.pack {
+.servicio {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -34,7 +34,7 @@ main {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.pack h3 {
+.servicio h3 {
     color: #333;
 }
 
@@ -91,12 +91,12 @@ footer {
 }
 
 @media (max-width: 768px) {
-    #packs {
+    #servicios {
         flex-direction: column;
         align-items: center;
     }
 
-    .pack {
+    .servicio {
         width: 90%;
     }
 }

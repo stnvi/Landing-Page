@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let selectedPack = null;
+    let selectedService = null;
 
-    // Handle pack selection buttons
-    const buttons = document.querySelectorAll('.pack button');
+    // Handle service selection buttons
+    const buttons = document.querySelectorAll('.servicio button');
     buttons.forEach(button => {
         button.addEventListener('click', function() {
             // Remove 'selected' class from all buttons
             buttons.forEach(btn => btn.classList.remove('selected'));
             // Add 'selected' class to clicked button
             this.classList.add('selected');
-            // Store selected pack
-            selectedPack = this.parentElement.querySelector('h3').textContent;
-            alert(`Has seleccionado el pack: ${selectedPack}.`);
+            // Store selected service
+            selectedService = this.parentElement.querySelector('h3').textContent;
+            alert(`Has seleccionado el servicio: ${selectedService}.`);
         });
     });
 
@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Include selected pack in message
-        const fullMessage = selectedPack ? `Pack seleccionado: ${selectedPack}\n\n${message}` : message;
+        // Include selected service in message
+        const fullMessage = selectedService ? `Servicio seleccionado: ${selectedService}\n\n${message}` : message;
 
         // Try to send via EmailJS API
         fetch('https://api.emailjs.com/api/v1.0/email/send', {
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (response.ok) {
                 alert('Mensaje enviado exitosamente. Gracias por contactarnos.');
                 form.reset();
-                selectedPack = null;
+                selectedService = null;
                 buttons.forEach(btn => btn.classList.remove('selected'));
             } else {
                 throw new Error('EmailJS API error');
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = mailtoLink;
             alert('Abriendo tu cliente de email para enviar el mensaje. Gracias por contactarnos.');
             form.reset();
-            selectedPack = null;
+            selectedService = null;
             buttons.forEach(btn => btn.classList.remove('selected'));
         });
     });
