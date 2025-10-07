@@ -3,15 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle service selection buttons
     const buttons = document.querySelectorAll('.servicio button');
-    buttons.forEach(button => {
+    const servicePages = ['planificacion.html', 'paquetes.html', 'consultoria.html'];
+    buttons.forEach((button, index) => {
         button.addEventListener('click', function() {
-            // Remove 'selected' class from all buttons
-            buttons.forEach(btn => btn.classList.remove('selected'));
-            // Add 'selected' class to clicked button
-            this.classList.add('selected');
-            // Store selected service
-            selectedService = this.parentElement.querySelector('h3').textContent;
-            alert(`Has seleccionado el servicio: ${selectedService}.`);
+            // Open the corresponding service page
+            window.location.href = servicePages[index];
         });
     });
 

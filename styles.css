@@ -1,21 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #87CEEB 0%, #F0E68C 50%, #98FB98 100%);
+    background-attachment: fixed;
+    color: #333;
+    line-height: 1.6;
 }
 
 header {
-    background-color: #333;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 80px 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+header h1 {
+    font-size: 3em;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+header p {
+    font-size: 1.2em;
+    margin: 10px 0 0 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.contact-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #4CAF50, #2196F3);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.contact-button:hover {
+    background: linear-gradient(45deg, #45a049, #1976D2);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    margin-top: -30px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 #servicios {
@@ -25,13 +87,34 @@ main {
 }
 
 .servicio {
-    background-color: white;
+    background: rgba(255, 255, 255, 0.9);
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 20px;
-    margin: 10px;
+    margin: 15px;
     width: 300px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.servicio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80') no-repeat center center;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.servicio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
 .servicio h3 {
@@ -44,24 +127,42 @@ main {
 }
 
 button {
-    background-color: #007bff;
+    background: linear-gradient(45deg, #4CAF50, #2196F3);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(45deg, #45a049, #1976D2);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 button.selected {
-    background-color: #28a745;
+    background: linear-gradient(45deg, #FF9800, #FF5722);
 }
 
 button.selected:hover {
-    background-color: #218838;
+    background: linear-gradient(45deg, #E68900, #D84315);
+}
+
+#detalles {
+    margin-bottom: 40px;
+}
+
+#detalles ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+#detalles li {
+    margin-bottom: 10px;
 }
 
 #contacto {
@@ -83,11 +184,12 @@ input, textarea {
 }
 
 footer {
-    background-color: #333;
+    background: linear-gradient(45deg, #333, #555);
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     margin-top: 40px;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
 }
 
 @media (max-width: 768px) {
